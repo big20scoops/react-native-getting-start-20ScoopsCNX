@@ -1,5 +1,3 @@
-import {} from 'styled-components';
-
 import theme from './index';
 
 declare module 'styled-components' {
