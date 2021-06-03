@@ -6,11 +6,37 @@ const Container = styled.View`
   flex: 1;
 `;
 
+const PlusButton = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  background-color: ${({ theme }) => theme.colors.brand};
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+
+  shadow-opacity: 0.3;
+  shadow-radius: 8px;
+  shadow-color: ${({ theme }) => theme.colors.brand};
+  elevation: 12;
+`;
+
+const PlusText = styled.Text`
+  color: ${({ theme }) => theme.colors.white};
+  fontSize: 20px;
+`;
+
 const HomeScreen = () => {
   const { loading, error, data } = useQuery(HERO_LIST);
 
   return (
-    <Container />
+    <Container>
+      <PlusButton onPress={() => {}}>
+        <PlusText>+</PlusText>
+      </PlusButton>
+    </Container>
   );
 };
 
