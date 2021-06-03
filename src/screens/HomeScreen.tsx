@@ -4,14 +4,10 @@ import { useQuery, gql } from '@apollo/client';
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.brand};
 `;
 
 const HomeScreen = () => {
-
   const { loading, error, data } = useQuery(HERO_LIST);
-
-  console.log('heroes ==>', data)
 
   return (
     <Container />
