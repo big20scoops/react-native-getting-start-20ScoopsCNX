@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useQuery, gql } from '@apollo/client';
+import { NavigationProp } from '@react-navigation/core';
+import { NavigationName } from '../navigation/navigationName';
+
+interface HomeScreenProps {
+  navigation: NavigationProp;
+};
 
 const Container = styled.View`
   flex: 1;
@@ -28,12 +34,12 @@ const PlusText = styled.Text`
   fontSize: 20px;
 `;
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { loading, error, data } = useQuery(HERO_LIST);
 
   return (
     <Container>
-      <PlusButton onPress={() => {}}>
+      <PlusButton onPress={() => navigation.navigate(NavigationName.CREATE)}>
         <PlusText>+</PlusText>
       </PlusButton>
     </Container>

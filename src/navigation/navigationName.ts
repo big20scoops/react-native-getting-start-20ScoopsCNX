@@ -1,4 +1,4 @@
 export enum NavigationName {
-  HOME = 'home',
-  CREATE = 'create',
+  HOME = 'Home',
+  CREATE = 'Create',
 }

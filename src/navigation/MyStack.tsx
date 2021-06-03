@@ -12,7 +12,6 @@ const navigationOptions: StackNavigationOptions = {
   headerStyle: {
     backgroundColor: Theme.colors.brand,
   },
-  headerTitleStyle: { alignSelf: 'center' },
   headerTintColor: Theme.colors.white,
 };
 
@@ -23,7 +22,10 @@ const MyStack = () => {
         <Stack.Screen
           name={NavigationName.HOME}
           component={HomeScreen}
-          options={navigationOptions}
+          options={{
+            ...navigationOptions,
+            headerTitleStyle: { alignSelf: 'center' },
+          }}
         />
         <Stack.Screen
           name={NavigationName.CREATE}
