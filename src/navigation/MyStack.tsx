@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import Theme from '../theme';
+import { NavigationName } from './navigationName';
+import CreateScreen from '../screens/CreateScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,13 +21,13 @@ const MyStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Home"
+          name={NavigationName.HOME}
           component={HomeScreen}
           options={navigationOptions}
         />
         <Stack.Screen
-          name="Create"
-          component={HomeScreen}
+          name={NavigationName.CREATE}
+          component={CreateScreen}
           options={navigationOptions}
         />
       </Stack.Navigator>
