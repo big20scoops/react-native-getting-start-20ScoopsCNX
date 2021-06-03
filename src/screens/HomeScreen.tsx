@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useQuery, gql } from '@apollo/client';
-import { NavigationProp } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { NavigationName } from '../navigation/navigationName';
+import { RootStackParamList } from './rootStackPrams';
 
 interface HomeScreenProps {
-  navigation: NavigationProp;
+  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
 };
 
 const Container = styled.View`
