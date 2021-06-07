@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import styled from 'styled-components/native';
 import { useQuery, gql } from '@apollo/client';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { NavigationName } from '../navigation/navigationName';
 import { RootStackParamList } from './rootStackPrams';
+import { FlatList } from 'react-native-gesture-handler';
+import HeroCard from '../components/HeroCard';
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
@@ -38,8 +40,29 @@ const PlusText = styled.Text`
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { loading, error, data } = useQuery(HERO_LIST);
 
+  const renderItem = ({ item }) => {
+    const { name } = item;
+    return (
+      <HeroCard 
+        name={name}
+        // thumbnail={thumbnail}
+      />
+    )
+  };
+
+  const renderHeroList = useCallback(() => {
+    return (
+      <FlatList
+        data={data.heros}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    )
+  }, [data])
+
   return (
     <Container>
+      {renderHeroList()}
       <PlusButton onPress={() => navigation.navigate(NavigationName.CREATE)}>
         <PlusText>+</PlusText>
       </PlusButton>
