@@ -17,4 +17,4 @@ Source code of React-Native getting start with 20Scoops CNX
  - https://styled-system.com
 
 ## Environment:
- - API: https://hero-graphql.herokuapp.com/graphql
+ - API: https://hero-graphql.herokuapp.com/graphql (repo: https://github.com/20Scoops-CNX/hero-graphql)
