@@ -51,7 +51,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       <FlatList
         data={data.heros}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.name}
       />
     )
   }, [data])

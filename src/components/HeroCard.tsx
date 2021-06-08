@@ -1,4 +1,6 @@
 import React from 'react';
+import { Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 interface HeroCardProps {
@@ -18,6 +20,21 @@ const Container = styled.View`
   elevation: 12;
 `;
 
+const ContentWrapper = styled.View`
+  flex: 1;
+  flex-direction: row;
+`;
+
+const LeftWrapper = styled.View`
+  flex: 0.5;
+  align-items: flex-start;
+`;
+
+const RightWrapper = styled.View`
+  flex: 0.5;
+  align-items: flex-end;
+`;
+
 const Thumbnail = styled.Image`
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -26,14 +43,41 @@ const Thumbnail = styled.Image`
 `;
 
 const Name = styled.Text`
-  
+  margin: 10px;
 `;
+
+const DetailButton = styled.TouchableOpacity`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.brand};
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-width: 1px;
+  border-color: ${({ theme }) => `${theme.colors.brand}20`}
+`;
+
+
+const DetailText = styled.Text`
+  margin: 10px;
+  color: ${({ theme }) => theme.colors.white};
+`;
+
 
 const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
   return (
     <Container>
         <Thumbnail source={{ uri: thumbnail }} />
-        <Name>{name}</Name>
+        <ContentWrapper>
+          <LeftWrapper>
+            <Name>{name}</Name>
+          </LeftWrapper>
+          <RightWrapper>
+            <DetailButton>
+              <DetailText>-></DetailText>
+            </DetailButton>
+          </RightWrapper>
+        </ContentWrapper>
     </Container>
   );
 };
