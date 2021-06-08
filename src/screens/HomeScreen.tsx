@@ -26,11 +26,6 @@ const PlusButton = styled.TouchableOpacity`
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-
-  shadow-opacity: 0.3;
-  shadow-radius: 8px;
-  shadow-color: ${({ theme }) => theme.colors.brand};
-  elevation: 12;
 `;
 
 const PlusText = styled.Text`
