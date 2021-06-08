@@ -7,6 +7,7 @@ import { RootStackParamList } from './rootStackPrams';
 import { FlatList } from 'react-native-gesture-handler';
 import HeroCard from '../components/HeroCard';
 import { Text } from 'react-native';
+import Spinner from '../components/Spinner';
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
@@ -56,7 +57,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
     )
   }, [data])
   
-  if (loading) return <Text>Loading...</Text>;
+  if (loading) return <Spinner />;
   if (error) return <Text>{`Error! ${error.message}`}</Text>;
 
   return (

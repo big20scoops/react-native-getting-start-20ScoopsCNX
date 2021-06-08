@@ -44,6 +44,8 @@ const Thumbnail = styled.Image`
 
 const Name = styled.Text`
   margin: 10px;
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: 700;
 `;
 
 const DetailButton = styled.TouchableOpacity`
@@ -54,7 +56,7 @@ const DetailButton = styled.TouchableOpacity`
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-width: 2px;
-  border-color: ${({ theme }) => `${theme.colors.brand}20`}
+  border-color: ${({ theme }) => `${theme.colors.brand}20`};
   padding: 5px;
 `;
 
