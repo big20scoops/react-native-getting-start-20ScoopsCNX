@@ -55,7 +55,7 @@ const DetailButton = styled.TouchableOpacity`
   justify-content: center;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  border-width: 2px;
+  border-width: 3px;
   border-color: ${({ theme }) => `${theme.colors.brand}20`};
   padding: 5px;
 `;
