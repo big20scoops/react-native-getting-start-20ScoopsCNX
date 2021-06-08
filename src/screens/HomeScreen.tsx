@@ -6,6 +6,7 @@ import { NavigationName } from '../navigation/navigationName';
 import { RootStackParamList } from './rootStackPrams';
 import { FlatList } from 'react-native-gesture-handler';
 import HeroCard from '../components/HeroCard';
+import { Text } from 'react-native';
 
 interface HomeScreenProps {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>;
@@ -59,6 +60,9 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       />
     )
   }, [data])
+  
+  if (loading) return <Text>Loading...</Text>;
+  if (error) return <Text>{`Error! ${error.message}`}</Text>;
 
   return (
     <Container>
