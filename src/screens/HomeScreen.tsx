@@ -42,11 +42,11 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { loading, error, data } = useQuery(HERO_LIST);
 
   const renderItem = ({ item }) => {
-    const { name } = item;
+    const { name, images: { sm: thumbnail } } = item;
     return (
       <HeroCard 
         name={name}
-        // thumbnail={thumbnail}
+        thumbnail={thumbnail}
       />
     )
   };
@@ -78,6 +78,9 @@ const HERO_LIST = gql`
   query {
     heros {
       name
+      images {
+        sm
+      }
     }
   }
 `;

@@ -11,7 +11,8 @@ const Container = styled.View`
 `;
 
 const Thumbnail = styled.Image`
-  
+  width: 25px;
+  height: 25px;
 `;
 
 const Name = styled.Text`
@@ -21,6 +22,7 @@ const Name = styled.Text`
 const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
   return (
     <Container>
+        <Thumbnail source={{ uri: thumbnail }} />
         <Name>{name}</Name>
     </Container>
   );
