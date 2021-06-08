@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
+
+import ArrowIcon from '../icons/right-arrow.svg';
 
 interface HeroCardProps {
   name: string;
@@ -55,14 +55,8 @@ const DetailButton = styled.TouchableOpacity`
   border-bottom-right-radius: 10px;
   border-width: 2px;
   border-color: ${({ theme }) => `${theme.colors.brand}20`}
+  padding: 5px;
 `;
-
-
-const DetailText = styled.Text`
-  margin: 10px;
-  color: ${({ theme }) => theme.colors.white};
-`;
-
 
 const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
   return (
@@ -74,7 +68,7 @@ const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
           </LeftWrapper>
           <RightWrapper>
             <DetailButton>
-              <DetailText>-></DetailText>
+              <ArrowIcon width="25" height="25" />
             </DetailButton>
           </RightWrapper>
         </ContentWrapper>
