@@ -15,6 +15,9 @@ Source code of React-Native getting start with 20Scoops CNX
  - https://reactnavigation.org/docs/getting-started || https://reactnative.dev/docs/navigation
  - https://www.apollographql.com/docs/react/integrations/react-native/
  - https://styled-system.com
+ - https://github.com/react-native-svg/react-native-svg
+ - https://redux-toolkit.js.org
+
 
 ## Environment:
  - API: https://hero-graphql.herokuapp.com/graphql (repo: https://github.com/20Scoops-CNX/hero-graphql)
