@@ -4,4 +4,4 @@ const colors = {
   black: '#343a40',
 };
 
-export { colors };
+export {colors};

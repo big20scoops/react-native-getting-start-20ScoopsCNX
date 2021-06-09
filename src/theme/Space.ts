@@ -13,4 +13,4 @@ const space = {
   xxxxxl: '44px',
 };
 
-export { space };
+export {space};

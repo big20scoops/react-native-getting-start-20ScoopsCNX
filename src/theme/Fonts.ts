@@ -16,4 +16,4 @@ const fontSizes = {
   xxxl: '40px',
 };
 
-export { fonts, fontSizes };
+export {fonts, fontSizes};

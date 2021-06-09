@@ -1,8 +1,8 @@
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 
-import { colors } from './Colors';
-import { fontSizes, fonts } from './Fonts';
-import { space } from './Space';
+import {colors} from './Colors';
+import {fontSizes, fonts} from './Fonts';
+import {space} from './Space';
 
 export const isIOS = Platform.OS === 'ios';
 export const isAndroid = Platform.OS === 'android';

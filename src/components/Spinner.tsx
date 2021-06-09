@@ -1,7 +1,7 @@
 import React from 'react';
-import { ActivityIndicator } from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import styled from 'styled-components/native';
-import { colors } from '../theme/Colors';
+import {colors} from '../theme/Colors';
 
 const Container = styled.View`
   flex: 1;

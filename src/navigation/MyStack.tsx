@@ -1,9 +1,12 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {
+  createStackNavigator,
+  StackNavigationOptions,
+} from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import Theme from '../theme';
-import { NavigationName } from './navigationName';
+import {NavigationName} from './navigationName';
 import DetailScreen from '../screens/DetailScreen';
 
 const Stack = createStackNavigator();
@@ -24,7 +27,7 @@ const MyStack = () => {
           component={HomeScreen}
           options={{
             ...navigationOptions,
-            headerTitleStyle: { alignSelf: 'center' },
+            headerTitleStyle: {alignSelf: 'center'},
           }}
         />
         <Stack.Screen

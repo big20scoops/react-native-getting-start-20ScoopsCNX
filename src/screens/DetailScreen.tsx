@@ -6,9 +6,7 @@ const Container = styled.View`
 `;
 
 const DetailScreen = () => {
-  return (
-    <Container />
-  );
+  return <Container />;
 };
 
 export default DetailScreen;
