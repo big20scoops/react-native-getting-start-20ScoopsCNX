@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import ArrowIcon from '../icons/right-arrow.svg';
 
 interface HeroCardProps {
+  id: string;
   name: string;
   thumbnail: string;
   onPress: Function;
@@ -61,7 +62,7 @@ const DetailButton = styled.TouchableOpacity`
   padding: 5px;
 `;
 
-const HeroCard = ({name, thumbnail, onPress}: HeroCardProps) => {
+const HeroCard = ({id, name, thumbnail, onPress}: HeroCardProps) => {
   return (
     <Container>
       <Thumbnail source={{uri: thumbnail}} />
@@ -70,7 +71,11 @@ const HeroCard = ({name, thumbnail, onPress}: HeroCardProps) => {
           <Name>{name}</Name>
         </LeftWrapper>
         <RightWrapper>
-          <DetailButton onPress={() => onPress()}>
+          <DetailButton
+            onPress={() => {
+              onPress();
+              console.log(id);
+            }}>
             <ArrowIcon width="25" height="25" />
           </DetailButton>
         </RightWrapper>

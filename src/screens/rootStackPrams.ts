@@ -1,4 +1,4 @@
 export type RootStackParamList = {
-  ['Hero List']: undefined;
+  HEROES: undefined;
   Detail: undefined;
 };

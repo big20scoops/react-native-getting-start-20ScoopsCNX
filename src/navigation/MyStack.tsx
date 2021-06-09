@@ -23,7 +23,7 @@ const MyStack = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={NavigationName.HOME}
+          name={NavigationName.HEROES}
           component={HomeScreen}
           options={{
             ...navigationOptions,

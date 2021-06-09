@@ -13,7 +13,15 @@ import Spinner from '../components/Spinner';
 let {width} = Dimensions.get('window');
 
 interface HomeScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, 'Hero List'>;
+  navigation: StackNavigationProp<RootStackParamList, 'HEROES'>;
+}
+
+interface RowData {
+  _id: string;
+  name: string;
+  images: {
+    sm: string;
+  };
 }
 
 const Container = styled.View`
@@ -32,19 +40,21 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       index => {
         return index;
       },
-      (type, dimension) => {
+      (_type, dimension) => {
         dimension.height = 125;
         dimension.width = width;
       },
     );
 
-    const renderItem = (type, rowData) => {
+    const renderItem: any = (type: string, rowData: RowData) => {
       const {
+        _id: id,
         name,
         images: {sm: thumbnail},
       } = rowData;
       return (
         <HeroCard
+          id={id}
           name={name}
           thumbnail={thumbnail}
           onPress={() => navigation.navigate(NavigationName.DETAIL)}
@@ -74,6 +84,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
 const HERO_LIST = gql`
   query {
     heros {
+      _id
       name
       images {
         sm
