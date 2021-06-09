@@ -4,7 +4,7 @@ import { createStackNavigator, StackNavigationOptions } from '@react-navigation/
 import HomeScreen from '../screens/HomeScreen';
 import Theme from '../theme';
 import { NavigationName } from './navigationName';
-import CreateScreen from '../screens/CreateScreen';
+import DetailScreen from '../screens/DetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -28,8 +28,8 @@ const MyStack = () => {
           }}
         />
         <Stack.Screen
-          name={NavigationName.CREATE}
-          component={CreateScreen}
+          name={NavigationName.DETAIL}
+          component={DetailScreen}
           options={navigationOptions}
         />
       </Stack.Navigator>

@@ -43,6 +43,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       <HeroCard 
         name={name}
         thumbnail={thumbnail}
+        onPress={() => navigation.navigate(NavigationName.DETAIL)}
       />
     )
   };
@@ -63,9 +64,6 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
   return (
     <Container>
       {renderHeroList()}
-      <PlusButton onPress={() => navigation.navigate(NavigationName.CREATE)}>
-        <PlusText>+</PlusText>
-      </PlusButton>
     </Container>
   );
 };

@@ -5,10 +5,10 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const CreateScreen = () => {
+const DetailScreen = () => {
   return (
     <Container />
   );
 };
 
-export default CreateScreen;
+export default DetailScreen;

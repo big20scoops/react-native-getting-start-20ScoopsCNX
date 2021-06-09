@@ -6,6 +6,7 @@ import ArrowIcon from '../icons/right-arrow.svg';
 interface HeroCardProps {
   name: string;
   thumbnail: string;
+  onPress: Function;
 }
 
 const Container = styled.View`
@@ -60,7 +61,11 @@ const DetailButton = styled.TouchableOpacity`
   padding: 5px;
 `;
 
-const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
+const HeroCard = ({
+  name,
+  thumbnail,
+  onPress
+}: HeroCardProps) => {
   return (
     <Container>
         <Thumbnail source={{ uri: thumbnail }} />
@@ -69,7 +74,7 @@ const HeroCard = ({ name, thumbnail }: HeroCardProps) => {
             <Name>{name}</Name>
           </LeftWrapper>
           <RightWrapper>
-            <DetailButton>
+            <DetailButton onPress={() => onPress()}>
               <ArrowIcon width="25" height="25" />
             </DetailButton>
           </RightWrapper>
