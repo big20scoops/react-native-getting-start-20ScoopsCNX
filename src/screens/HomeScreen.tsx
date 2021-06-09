@@ -1,44 +1,45 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components/native';
 import { useQuery, gql } from '@apollo/client';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { DataProvider, LayoutProvider, RecyclerListView } from "recyclerlistview";
+
 import { NavigationName } from '../navigation/navigationName';
 import { RootStackParamList } from './rootStackPrams';
-import { FlatList } from 'react-native-gesture-handler';
 import HeroCard from '../components/HeroCard';
-import { Text } from 'react-native';
+import { Dimensions, Text } from 'react-native';
 import Spinner from '../components/Spinner';
 
+
+let { width } = Dimensions.get("window");
+
 interface HomeScreenProps {
-  navigation: StackNavigationProp<RootStackParamList, 'Home'>;
+  navigation: StackNavigationProp<RootStackParamList, 'Hero List'>;
 };
 
 const Container = styled.View`
   flex: 1;
 `;
 
-const PlusButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  background-color: ${({ theme }) => theme.colors.brand};
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-  align-items: center;
-  justify-content: center;
-`;
-
-const PlusText = styled.Text`
-  color: ${({ theme }) => theme.colors.white};
-  fontSize: 20px;
-`;
-
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { loading, error, data } = useQuery(HERO_LIST);
 
-  const renderItem = ({ item }) => {
-    const { name, images: { sm: thumbnail } } = item;
+  const dataProvider = new DataProvider((r1, r2) => {
+    return r1 !== r2;
+  });
+
+  const layoutProvider = new LayoutProvider(
+    index => {
+        return index;
+    },
+    (type, dimension) => {
+        dimension.height = 125;
+        dimension.width = width;
+    }
+);
+
+  const renderItem = (type, data, index) => {
+    const { name, images: { sm: thumbnail } } = data;
     return (
       <HeroCard 
         name={name}
@@ -50,10 +51,10 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
   const renderHeroList = useCallback(() => {
     return (
-      <FlatList
-        data={data.heros}
-        renderItem={renderItem}
-        keyExtractor={item => item.name}
+      <RecyclerListView
+        dataProvider={dataProvider.cloneWithRows(data.heros)}
+        rowRenderer={renderItem}
+        layoutProvider={layoutProvider}
       />
     )
   }, [data])
