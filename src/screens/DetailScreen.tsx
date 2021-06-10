@@ -11,7 +11,10 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Name = styled.Text``;
+const Name = styled.Text`
+  font-size: 16px;
+  color: ${({theme}) => theme.colors.black};
+`;
 
 const DetailScreen = () => {
   const currentHero = useAppSelector(heroSelector.currentHero);
@@ -20,9 +23,12 @@ const DetailScreen = () => {
   });
 
   const renderDetail = useCallback(() => {
-    const {name} = data;
-    console.log(data);
-    return <Name>{name}</Name>;
+    const {name} = data.hero;
+    return (
+      <>
+        <Name>{name}</Name>
+      </>
+    );
   }, [data]);
 
   if (loading) {
