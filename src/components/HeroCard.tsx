@@ -62,7 +62,7 @@ const DetailButton = styled.TouchableOpacity`
   padding: 5px;
 `;
 
-const HeroCard = ({id, name, thumbnail, onPress}: HeroCardProps) => {
+const HeroCard = ({name, thumbnail, onPress}: HeroCardProps) => {
   return (
     <Container>
       <Thumbnail source={{uri: thumbnail}} />
@@ -71,11 +71,7 @@ const HeroCard = ({id, name, thumbnail, onPress}: HeroCardProps) => {
           <Name>{name}</Name>
         </LeftWrapper>
         <RightWrapper>
-          <DetailButton
-            onPress={() => {
-              onPress();
-              console.log(id);
-            }}>
+          <DetailButton onPress={() => onPress()}>
             <ArrowIcon width="25" height="25" />
           </DetailButton>
         </RightWrapper>
