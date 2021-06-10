@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {useAppSelector} from '../redux/hooks';
+import heroSelector from '../redux/selectors/heroSelector';
 
 const Container = styled.View`
   flex: 1;
@@ -9,7 +10,7 @@ const Container = styled.View`
 const Name = styled.Text``;
 
 const DetailScreen = () => {
-  const currentHero = useAppSelector(state => state.hero.currentHero);
+  const currentHero = useAppSelector(heroSelector.currentHero);
 
   return (
     <Container>
