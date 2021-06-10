@@ -18,9 +18,12 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Name = styled.Text`
-  font-size: 16px;
-  color: ${({theme}) => theme.colors.black};
+const ProfileWrapper = styled.View`
+  background-color: rgba(0, 0, 0, 0.25);
+`;
+
+const ProfileImage = styled.Image`
+  height: 200px;
 `;
 
 const DetailScreen = ({navigation}: DetailScreenProps) => {
@@ -34,10 +37,14 @@ const DetailScreen = ({navigation}: DetailScreenProps) => {
   }, [data, navigation]);
 
   const renderDetail = useCallback(() => {
-    const {name} = data.hero;
+    const {
+      images: {sm: image},
+    } = data.hero;
     return (
       <>
-        <Name>{name}</Name>
+        <ProfileWrapper>
+          <ProfileImage resizeMode="contain" source={{uri: image}} />
+        </ProfileWrapper>
       </>
     );
   }, [data]);
@@ -57,7 +64,7 @@ const HERO_DETAIL = gql`
     hero(id: $currentHero) {
       name
       images {
-        md
+        sm
       }
     }
   }
