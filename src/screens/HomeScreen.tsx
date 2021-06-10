@@ -9,6 +9,8 @@ import {RootStackParamList} from './rootStackPrams';
 import HeroCard from '../components/HeroCard';
 import {Dimensions, Text} from 'react-native';
 import Spinner from '../components/Spinner';
+import {useAppDispatch} from '../redux/hooks';
+import {selectCurrentHero} from '../redux/reducers/heroSlicer';
 
 let {width} = Dimensions.get('window');
 
@@ -30,6 +32,7 @@ const Container = styled.View`
 
 const HomeScreen = ({navigation}: HomeScreenProps) => {
   const {loading, error, data} = useQuery(HERO_LIST);
+  const dispatch = useAppDispatch();
 
   const renderHeroList = useCallback(() => {
     const dataProvider = new DataProvider((r1, r2) => {
@@ -57,9 +60,14 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
           id={id}
           name={name}
           thumbnail={thumbnail}
-          onPress={() => navigation.navigate(NavigationName.DETAIL)}
+          onPress={() => onPressNext(id)}
         />
       );
+    };
+
+    const onPressNext = (id: string) => {
+      navigation.navigate(NavigationName.DETAIL);
+      dispatch(selectCurrentHero(id));
     };
 
     return (
@@ -69,7 +77,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
         layoutProvider={layoutProvider}
       />
     );
-  }, [data, navigation]);
+  }, [data, navigation, dispatch]);
 
   if (loading) {
     return <Spinner />;
