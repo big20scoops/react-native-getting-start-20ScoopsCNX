@@ -49,7 +49,7 @@ const HomeScreen = ({navigation}: HomeScreenProps) => {
       },
     );
 
-    const renderItem: any = (type: string, rowData: RowData) => {
+    const renderItem: any = (_type: string, rowData: RowData) => {
       const {
         _id: id,
         name,
