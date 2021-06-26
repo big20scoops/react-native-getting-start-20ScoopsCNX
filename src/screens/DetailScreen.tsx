@@ -66,6 +66,39 @@ const HERO_DETAIL = gql`
       images {
         sm
       }
+      powerstats {
+        intelligence
+        strength
+        speed
+        durability
+        power
+        combat
+      }
+      appearance {
+        gender
+        race
+        weight
+        height
+        hairColor
+        eyeColor
+      }
+      biography {
+        fullName
+        alterEgos
+        aliases
+        placeOfBirth
+        firstAppearance
+        publisher
+        alignment
+      }
+      work {
+        occupation
+        base
+      }
+      connections {
+        relatives
+        groupAffiliation
+      }
     }
   }
 `;
