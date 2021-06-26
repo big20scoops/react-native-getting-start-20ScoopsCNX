@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
-import heroReducer from './reducers/heroSlicer';
+import heroReducer from './reducers/heroSlice';
 
 export const store = configureStore({
   reducer: {

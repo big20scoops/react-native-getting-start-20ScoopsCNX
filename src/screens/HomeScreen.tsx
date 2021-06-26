@@ -10,7 +10,7 @@ import HeroCard from '../components/HeroCard';
 import {Dimensions, Text} from 'react-native';
 import Spinner from '../components/Spinner';
 import {useAppDispatch} from '../redux/hooks';
-import {selectCurrentHero} from '../redux/reducers/heroSlicer';
+import {selectCurrentHero} from '../redux/reducers/heroSlice';
 
 let {width} = Dimensions.get('window');
 
