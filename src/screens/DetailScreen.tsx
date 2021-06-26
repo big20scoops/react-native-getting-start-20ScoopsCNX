@@ -2,7 +2,7 @@ import {useQuery} from '@apollo/client';
 import {StackNavigationProp} from '@react-navigation/stack';
 import gql from 'graphql-tag';
 import React, {useCallback, useEffect} from 'react';
-import {Text} from 'react-native-svg';
+import {Text} from 'react-native';
 import styled from 'styled-components/native';
 import Spinner from '../components/Spinner';
 import {useAppSelector} from '../redux/hooks';
